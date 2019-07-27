@@ -14,21 +14,23 @@ This example is based on a Ubuntu 18 DigitalOcean Droplet.
 
 ### Create a DigitalOcean Droplet
 
-1. Here we selected a 3G host located in Singapore
+- Here we selected a 3G host located in Singapore
  
 ![Droplet](./media/digitalocean.png)
 
-2. After connected into the host as the **root** user, use the following instructions to
+- After connected into the host as the **root** user, use the following instructions to
 
-- Setup host [manual](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04)
-- Install Docker [manual](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
-- Install Docker Compose [manual](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04)
+    - Setup host [manual](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04)
+    - Install Docker [manual](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
+    - Install Docker Compose [manual](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04)
 
-3. Also we need to open up two extra ports, `10200` for the Corda node p2p access and `8080` for XPLet web access
+- Also we need to open up two extra ports, `10200` for the Corda node p2p access and `8080` for XPLet web access
 
 ![ufw](./media/ufw.png)
 
-4. SSH into the host using the **normal** user created in step 2's host setup, then
+### Setup and Start the XPLet dockers
+
+SSH into the host using the **normal** user created in step 2's host setup, then
 
 - clone this project and change to this folder
 ```bash
@@ -43,6 +45,7 @@ $ cd xplet/dockers
 | `<company>` | Company or XPLet name |
 | `<city>` | host location |
 | `<country two letter code>` | host country |
+| `<public IP address>` | host's public accessible IP address |
 
 For example:
 ```text
@@ -99,3 +102,32 @@ $ docker logs xplett-test
 
 you should see the server started (1) and connected with the Corda node (2):
 ![xplet](./media/xplet.png)
+
+### Create Admin User and Access the XPLet Web
+
+- execute the following command to create an admin user in XPLet
+
+```bash
+$ ./register-admin
+```
+
+you should see a response of *USER_CREATED* from the XPLet server like this:
+![admin](./media/admin.png)
+
+- go to http://<public IP address>:8080 (1) and login as `XPLetAdmin` (2) using `password` (3) as the password
+
+![web](./media/web.png)
+
+### Stop XPLet
+
+- execute the following command to stop all dockers
+
+```bash
+$ docker-compose -f docker-compose-xplet-aws-test.yml down
+```
+
+- all databases are stored under docker volumes, execute the following command to clear the volumes and remove the data 
+
+```bash
+$ docker volume ls -qf dangling=true | xargs docker volume rm
+```
