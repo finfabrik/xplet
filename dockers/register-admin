@@ -1,0 +1,1 @@
+curl -X POST "http://localhost:8081/api/v1/auth/signup" -H  "Accept: application/json" -H  "Content-Type: application/json" -d '{  "username":"XPLetAdmin",  "password":"password", "email": "xpsupport@finfabrik.com", "secret": "1-2-3-4-5-6-7-8-9-10-11-12", "action": "CREATE"}'

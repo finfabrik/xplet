@@ -6,6 +6,7 @@ Prerequisite
 - Public IP accessible server host
 - Docker (17.12.0+)  and Docker Compose (1.19.0+)
 - 2G free memory
+- curl
 
 Server Setup
 ---
