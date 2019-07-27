@@ -1,2 +1,2 @@
-# xplet
+# XPLet
 CrossPool Droplet - XPLet
