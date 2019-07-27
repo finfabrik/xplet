@@ -57,10 +57,10 @@ $ source env.conf
 $ docker-compose -f docker-compose-xplet-aws-test.yml config
 ```
 
-and you should see an out like this:
+and you should see an output like this:
 ![config](./media/docker-config.png)
 
-- if the config looks alright, execute the following command to pull and start the docker
+- if the config looks all right, execute the following command to pull and start the dockers
 
 ```bash
 $ docker-compose -f docker-compose-xplet-aws-test.yml up -d
