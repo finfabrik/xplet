@@ -25,7 +25,7 @@ XPlet is a free available package consisting of
 
 Any DABS *`issuer`* or service provider could be able to install, customise and run the XPLet to join the CrossPool ecosystem and issue asset tokens with minimal effort.
 
-DABS *`investors`* are served by the XPLet and the user data are managed by the XPLet owner (i.e. the issuer) locally. CrossPool processes the transactions only using DIDs and their Indy credentials.
+DABS *`investors`* are served by the XPLet and the user data are managed by the XPLet owner (i.e. the issuer) locally. CrossPool processes the transactions only using DIDs and their Indy Verifiable Credentials.
   
 
 ![xplet](./images/xplet.gif)
