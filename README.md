@@ -2,7 +2,7 @@
 
 # CrossPool Overview
 
-CrossPool is built based on two blockchain systems, the R3 [Corda](https://www.corda.net) and Hyperledger [Indy](https://www.hyperledger.org/projects/hyperledger-indy), composed of the CrossPool core services and multiple instances of the distributed "node" called CrossPool Droplet, a.k.a. _*XPLet*_.
+CrossPool is built based on two blockchain systems, the R3 [Corda](https://www.corda.net) and Hyperledger [Indy](https://www.hyperledger.org/projects/hyperledger-indy), composed of the CrossPool core services and multiple instances of the distributed "node" called CrossPool Droplet, a.k.a. **XPLet**.
 
 ![overview](./images/overview.gif)
 
@@ -23,9 +23,9 @@ XPlet is a free available package consisting of
 - MongoDB (optional if you have an existing one of version 4.0+)
 - PostgreSQL (optional if you have an existing one)
 
-Any DABS *`issuer`* or service provider could be able to install, customise and run the XPLet to join the CrossPool ecosystem and issue asset tokens with minimal effort.
+Any DABS `issuer` or service provider could be able to install, customise and run the XPLet to join the CrossPool ecosystem and issue asset tokens with minimal effort.
 
-DABS *`investors`* are served by the XPLet and the user data are managed by the XPLet owner (i.e. the issuer) locally. CrossPool processes the transactions only using DIDs and their Indy Verifiable Credentials.
+DABS `investors` are served by the XPLet and the user data are managed by the XPLet owner (i.e. the issuer) locally. CrossPool processes the transactions only using DIDs and their Indy Verifiable Credentials.
   
 
 ![xplet](./images/xplet.gif)
