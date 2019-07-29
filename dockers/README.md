@@ -1,4 +1,4 @@
-# XPLet Docker
+# XPLet Dockers
 
 Prerequisite
 ---
@@ -126,9 +126,9 @@ you should see a response of *USER_CREATED* from the XPLet server like this:
 
 ### Testing
 
-After logged in as the `XPLetAdmin` issuer, you can test the XPLet by issuing new tokens and allocating them to investors. Watch [this](http://youtu.be/jvP7S8MJHkw) demo video to see how. 
+After logged in as the `XPLetAdmin` issuer, you can test the XPLet by issuing new tokens and allocating them to investors. Watch [this](http://youtu.be/jvP7S8MJHkw) demo video to see how. XPLetAdmin's secret is `1-2-3-4-5-6-7-8-9-10-11-12`.
 
-Here are some DIDs you can use for testing:
+Here are some DIDs you can use for testing the token allocation and claim:
 
 DID | Secret |
 --- |  ---   |
@@ -138,8 +138,11 @@ BdZ4xJ4DB9PRjmhZJ4hp4G | choose-voyage-move-twice-radio-fix-economy-clinic-mule-
 NNdr5NQhJFYKdKbNPDvqzk | elegant-false-stove-bird-verb-before-depth-grass-business-resource-two-swear
 hVRHgfVdPVc2wc1iwn29b |  ketchup-invite-much-movie-upgrade-beauty-pipe-brass-balcony-toast-glow-sphere
 
-Use this URL for investors to claim the allocated tokens: http://`<public IP address>`:8080/#/en/claim
+Use the following URL for investors to claim the allocated tokens: 
 
+http://`<public IP address>`:8080/#/en/claim
+
+If you want to test the mobile browser with QR code scanning, you need to setup Nginx and follow this [instruction](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-18-04) to enable HTTPS, then use HTTPS port as a proxy to port 8080.
 
 ### Stop XPLet
 
