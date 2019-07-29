@@ -34,3 +34,9 @@ DABS `investors` are served by the XPLet and the user data are managed by the XP
 
 - Further reading about Hyperledger Indy DID and Verifiable Credentials, please refer to [this](https://github.com/hyperledger/education/blob/master/LFS171x/docs/introduction-to-hyperledger-indy.md)
 - CrossPool currently implements the Cordite [Distributed General Ledger](https://cordite.readthedocs.io/en/latest/content/concepts/dgl.html#dgl) as the Corda ledger for token issuance and account management
+
+# Contact Info
+
+- Follow us on [@FFCrossPool](https://twitter.com/FFCrossPool)
+- Join our gitter [XPLet](https://gitter.im/XPLet/community) community
+- Send emails to [XPSupport](mailto:xpsupport@finfabrik.com)

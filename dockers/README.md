@@ -33,13 +33,13 @@ This example is based on a Ubuntu 18 DigitalOcean Droplet.
 
 SSH into the host using the **normal** user created in step 2's host setup, then
 
-- clone this project and change to this folder
+- clone this project and change to dockers folder
 ```bash
 $ git clone git@github.com:finfabrik/xplet.git
 $ cd xplet/dockers
 ```
 
-- edit `env.conf` file and replace place holders with real values
+- edit `env.conf` file and replace place holders with your environment values
 
 | Place Holder | Remark |
 | ------------ | ------ |
@@ -115,7 +115,7 @@ $ ./register-admin
 you should see a response of *USER_CREATED* from the XPLet server like this:
 ![admin](./media/admin.png)
 
-- go to http://<public IP address>:8080 (1) and login as `XPLetAdmin` (2) using `password` (3) as the password
+- go to http://`<public IP address>`:8080 (1) and login as `XPLetAdmin` (2) using `password` (3) as the password
 
 ![web](./media/web.png)
 
