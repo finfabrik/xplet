@@ -93,17 +93,19 @@ $ docker ps --format 'table {{.Names}}\t{{.ID}}\t{{.CreatedAt}}\t{{.Status}}\t{{
 - check if the Corda node joined the CrossPool test network successfully
 
 ```bash
-$ docker logs xplet-cordxp
+$ docker logs -f xplet-cordxp
 ```
 
-you should see the node started up and registered (1), and the other nodes `Cordxp Oracle` (2), `Cordxp Regulator` (3), `Cordxp Token Registry` (4) and `Cordxp Notary` (5) were added:
+After logs rolling stopped, you should see the node started up and registered (1), and the other nodes `Cordxp Oracle` (2), `Cordxp Regulator` (3), `Cordxp Token Registry` (4) and `Cordxp Notary` (5) were added:
 
 ![cordxp](../images/cordxp.png)
+
+type ctrl-c to quit watching logs
 
 - check if the XPLet server started successfully and connected with the Corda node
 
 ```bash
-$ docker logs xplett-test
+$ docker logs xplet-test
 ```
 
 you should see the server started (1) and connected with the Corda node (2):
@@ -144,6 +146,8 @@ http://`<public IP address>`:8080/#/en/claim
 
 If you want to test the mobile browser with QR code scanning, you need to setup Nginx and follow this [instruction](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-18-04) to enable HTTPS, then use HTTPS port as a proxy to port 8080.
 
+**Please contact us (see below) for the token you issued, and someone from our support team will approve it for your testing.**
+
 ### Stop XPLet
 
 - execute the following command to stop all dockers
@@ -157,3 +161,17 @@ $ docker-compose -f docker-compose-xplet-aws-test.yml down
 ```bash
 $ docker volume ls -qf dangling=true | xargs docker volume rm
 ```
+
+Contact Info
+---
+
+- Follow us on twitter [@FFCrossPool](https://twitter.com/FFCrossPool)
+- Join our gitter [XPLet community](https://gitter.im/XPLet/community)
+- Send emails to [xpsupport@finfabrik.com](mailto:xpsupport@finfabrik.com)
+
+WARNING
+---
+
+This version is for demo and testing only, please DO NOT use it in production environment.
+
+We will reset the test network regularly without notice, and the blockchain ledgers will be emptied with data loss.

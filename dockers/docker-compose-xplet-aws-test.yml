@@ -1,0 +1,94 @@
+version: '3.5'
+
+services:
+  xplet-mongo:
+    image: mongo
+    container_name: xplet-mongo
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--smallfiles"]
+    ports:
+      - 27017:27017
+    networks:
+      xplet-test:
+    volumes:
+      - xplet-mongo:/data/db
+    restart: unless-stopped
+
+  xplet-postgres:
+    image: postgres:10.5
+    container_name: xplet-postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db-init:/docker-entrypoint-initdb.d/
+      - xplet-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 15s
+      timeout: 5s
+      retries: 4
+      start_period: 30s
+    networks:
+      xplet-test:
+
+  xplet-cordxp:
+    image: crosspool/cordxp
+    container_name: xplet-cordxp
+    environment:
+      - CORDITE_LEGAL_NAME=${XPLET_NAME}
+      - CORDITE_P2P_ADDRESS=${XPLET_IP}:10200
+      - CORDXP_COMPATIBILITY_ZONE_URL=http://18.139.247.103:8000
+      - CORDITE_DB_USER=postgres
+      - CORDITE_DB_PASS=postgres
+      - CORDITE_DB_DRIVER=org.postgresql.ds.PGSimpleDataSource
+      - CORDITE_DB_URL=jdbc:postgresql://xplet-postgres:5432/xplet
+      - CORDITE_DB_MAX_POOL_SIZE=5
+      - CORDITE_TRUST_STORE_PASSWORD=trustpass
+    volumes:
+      - cordxp-cert:/opt/corda/certificates
+    ports:
+      - 8082:8080
+      - 10200:10200
+    networks:
+      xplet-test:
+    depends_on:
+      - "xplet-postgres"
+    command: ["./wait-for-it.sh", "18.139.247.103:8000", "--", "run-corda"]
+    restart: on-failure
+
+  xplet-test:
+    image: crosspool/xplet
+    container_name: xplet-test
+    environment:
+      - PROFILE_NAME=aws-test
+    networks:
+      xplet-test:
+    ports:
+      - 8081:8091
+    volumes:
+      - xplet-indy:/app/indy
+    tmpfs:
+      - /tmp/indy_client
+    restart: unless-stopped
+
+  xplet-test-web:
+    image: crosspool/xplet-web
+    container_name: xplet-test-web
+    networks:
+      xplet-test:
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+
+networks:
+  xplet-test:
+    name: xplet_test
+
+volumes:
+  xplet-mongo:
+    name: xplet_mongo
+  xplet-pg:
+    name: xplet_pg
+  cordxp-cert:
+    name: cordxp_cert
+  xplet-indy:
+    name: xplet_indy
