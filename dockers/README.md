@@ -8,16 +8,21 @@ Prerequisite
 - 2G free memory
 - curl
 
+Watch the demo
+---
+
+This [demo](http://youtu.be/jvP7S8MJHkw) shows you how to issue, allocate and claim DABS tokens using XPLet.
+
 Server Setup
 ---
 
-This example is based on a Ubuntu 18 DigitalOcean Droplet.
+This setup example is based on an Ubuntu 18 DigitalOcean Droplet.
 
 ### Create a DigitalOcean Droplet
 
 - Here we selected a 3G host located in Singapore
  
-![Droplet](./media/digitalocean.png)
+![Droplet](../images/digitalocean.png)
 
 - After connected into the host as the **root** user, use the following instructions to
 
@@ -27,7 +32,7 @@ This example is based on a Ubuntu 18 DigitalOcean Droplet.
 
 - Also we need to open up two extra ports, `10200` for the Corda node p2p access and `8080` for XPLet web access
 
-![ufw](./media/ufw.png)
+![ufw](../images/ufw.png)
 
 ### Setup and Start the XPLet dockers
 
@@ -62,7 +67,7 @@ $ docker-compose -f docker-compose-xplet-aws-test.yml config
 ```
 
 and you should see an output like this:
-![config](./media/docker-config.png)
+![config](../images/docker-config.png)
 
 - if the config looks all right, execute the following command to pull and start the dockers
 
@@ -77,7 +82,7 @@ $ ./mongo-init-replicas.sh
 ``` 
 
 and you should see an output like this:
-![mongo-init](./media/mongo-init.png)
+![mongo-init](../images/mongo-init.png)
 
 - check if all dockers are up and running ok
 
@@ -93,7 +98,7 @@ $ docker logs xplet-cordxp
 
 you should see the node started up and registered (1), and the other nodes `Cordxp Oracle` (2), `Cordxp Regulator` (3), `Cordxp Token Registry` (4) and `Cordxp Notary` (5) were added:
 
-![cordxp](./media/cordxp.png)
+![cordxp](../images/cordxp.png)
 
 - check if the XPLet server started successfully and connected with the Corda node
 
@@ -102,7 +107,7 @@ $ docker logs xplett-test
 ```
 
 you should see the server started (1) and connected with the Corda node (2):
-![xplet](./media/xplet.png)
+![xplet](../images/xplet.png)
 
 ### Create Admin User and Access the XPLet Web
 
@@ -113,11 +118,28 @@ $ ./register-admin
 ```
 
 you should see a response of *USER_CREATED* from the XPLet server like this:
-![admin](./media/admin.png)
+![admin](../images/admin.png)
 
 - go to http://`<public IP address>`:8080 (1) and login as `XPLetAdmin` (2) using `password` (3) as the password
 
-![web](./media/web.png)
+![web](../images/web.png)
+
+### Testing
+
+After logged in as the `XPLetAdmin` issuer, you can test the XPLet by issuing new tokens and allocating them to investors. Watch [this](http://youtu.be/jvP7S8MJHkw) demo video to see how. 
+
+Here are some DIDs you can use for testing:
+
+DID | Secret |
+--- |  ---   |
+5vNHb2WAegygJByXa4fco8 | taste-bomb-upgrade-fitness-wash-decade-tuition-bullet-glory-purpose-relax-swift
+WVYhBkqcEPEgthdBthWEDX | little-mistake-faint-chase-void-depend-dynamic-position-motion-tool-canal-already
+BdZ4xJ4DB9PRjmhZJ4hp4G | choose-voyage-move-twice-radio-fix-economy-clinic-mule-glimpse-turkey-absent
+NNdr5NQhJFYKdKbNPDvqzk | elegant-false-stove-bird-verb-before-depth-grass-business-resource-two-swear
+hVRHgfVdPVc2wc1iwn29b |  ketchup-invite-much-movie-upgrade-beauty-pipe-brass-balcony-toast-glow-sphere
+
+Use this URL for investors to claim the allocated tokens: http://`<public IP address>`:8080/#/en/claim
+
 
 ### Stop XPLet
 

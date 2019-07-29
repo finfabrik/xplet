@@ -30,6 +30,8 @@ DABS `investors` are served by the XPLet and the user data are managed by the XP
 
 ![xplet](./images/xplet.gif)
 
+Follow this [instruction](./dockers/README.md) to setup and run the XPLet dockers.
+
 #### N.B.
 
 - Further reading about Hyperledger Indy DID and Verifiable Credentials, please refer to [this](https://github.com/hyperledger/education/blob/master/LFS171x/docs/introduction-to-hyperledger-indy.md)
@@ -37,6 +39,6 @@ DABS `investors` are served by the XPLet and the user data are managed by the XP
 
 # Contact Info
 
-- Follow us on [@FFCrossPool](https://twitter.com/FFCrossPool)
-- Join our gitter [XPLet](https://gitter.im/XPLet/community) community
-- Send emails to [XPSupport](mailto:xpsupport@finfabrik.com)
+- Follow us on twitter [@FFCrossPool](https://twitter.com/FFCrossPool)
+- Join our gitter [XPLet community](https://gitter.im/XPLet/community)
+- Send emails to [xpsupport@finfabrik.com](mailto:xpsupport@finfabrik.com)
