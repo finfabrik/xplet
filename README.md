@@ -2,6 +2,9 @@
 
 # CrossPool Overview
 
+> A digital platform for private markets! 
+  CrossPool enables digital issuance and transactions of assets.
+
 CrossPool is built based on two blockchain systems, the R3 [Corda](https://www.corda.net) and Hyperledger [Indy](https://www.hyperledger.org/projects/hyperledger-indy), composed of the CrossPool core services and multiple instances of the distributed "node" called CrossPool Droplet, a.k.a. **XPLet**.
 
 ![overview](./images/overview.gif)
