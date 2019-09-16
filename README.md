@@ -17,7 +17,7 @@ Transactions of the Digital Asset-Backed Securities (DABS), a.k.a. asset tokens,
 
 # XPLet
 
-XPlet is a free available package consisting of
+XPLet is a free available package consisting of
 
 - front-end web client
 - back-end server and APIs
